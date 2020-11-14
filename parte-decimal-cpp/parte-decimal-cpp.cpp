@@ -1,20 +1,42 @@
 // parte-decimal-cpp.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Autor: Cristian Antonio Escalante Hernandez
+// Github: crisanto-dev
+// Problema: Escriba un programa que entregue la parte decimal de un número real ingresado por el usuario.
 
 #include <iostream>
-
+#include <math.h>
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+	cout << "Autor: Cristian Antonio Escalante Hernadez\n";
+	cout << "Github: crisanto-dev\n";
+	cout << "Problema: Escriba un programa que entregue la parte decimal de un número real ingresado por el usuario.\n";
+	
+	double numero, decimales;
+
+	bool bandera = true;
+	do
+	{	
+		cout << "Ingrese un numero diferente de 0: ";
+		cin >> numero;
+		if (numero != 0)
+		{
+			bandera = false;
+		}
+		else {
+			cout << "Vuelva a intentarlo\n \n";
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+	} while (bandera);
+	if (numero < 0) {
+		numero *= -1;
+	}
+	decimales = numero - floor(numero);
+
+	printf("El numero decimal de %f es %f \n", numero, decimales);
+	cout << "Fin del programa \n";
+	system("PAUSE");
+
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
